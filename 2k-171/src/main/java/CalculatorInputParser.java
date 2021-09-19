@@ -1,25 +1,28 @@
 import java.util.ArrayList;
 
-public class CalculatorInputParser extends AbstractParser{
+public class CalculatorInputParser extends AbstractParser {
     @Override
-    public ArrayList<?> parse(ArrayList<?> data) {
+    public ArrayList<String> parse(ArrayList<String> data) {
         validate(data);
         return data;
     }
 
     @Override
-    protected void validate(ArrayList<?> data) {
+    protected void validate(ArrayList<String> data) {
         if (data.size() != 3) {
             throw new IllegalArgumentException("Incorrect input: 3 arguments must be provided");
         }
-        else if (!(data.get(0) instanceof Number)) {
+        try {
+            Double.parseDouble(data.get(0));
+        }
+        catch (NumberFormatException e) {
             throw new IllegalArgumentException("Incorrect input: the first argument must be a number");
         }
-        else if (!(data.get(2) instanceof Number)) {
-            throw new IllegalArgumentException("Incorrect input: the third argument must be a number");
+        try {
+            Double.parseDouble(data.get(2));
         }
-        else if (!(data.get(1) instanceof String)) {
-            throw new IllegalArgumentException("Incorrect input: the second argument must be a symbol");
+        catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Incorrect input: the third argument must be a number");
         }
     }
 }

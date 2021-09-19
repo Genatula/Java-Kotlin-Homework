@@ -1,10 +1,9 @@
 public class Calculator extends AbstractCalculator {
     @Override
     public Number calculate(Number firstNum, String sign, Number secondNum) {
-
-        double firstValue = firstNum.doubleValue();
-        double secondValue = secondNum.doubleValue();
-        Number answer;
+        Double answer;
+        Double firstValue = Double.valueOf(String.valueOf(firstNum));
+        Double secondValue = Double.valueOf(String.valueOf(secondNum));
 
         switch (sign) {
             case "+" -> answer = firstValue + secondValue;
