@@ -10,7 +10,7 @@ class CalculatorInputParser : AbstractParser() {
     }
 
     override fun validate(data: ArrayList<String>) {
-        if (data.size == 3) { throw IllegalArgumentException("Incorrect input: 3 arguments must be provided") }
+        if (data.size != 3) { throw IllegalArgumentException("Incorrect input: 3 arguments must be provided") }
         try {
             data[0].toDouble()
         } catch (e: NumberFormatException) {
