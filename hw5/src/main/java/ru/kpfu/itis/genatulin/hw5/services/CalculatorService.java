@@ -22,13 +22,13 @@ public class CalculatorService {
         this.calculationRepository = calculationRepository;
     }
 
-    public int calculate(int arg1, int arg2, Operation operation) {
+    public int calculate(int arg1, int arg2, Operation operation) throws NoSuchMethodException {
         Class<? extends Calculator> calculatorClass = calculator.getClass();
         try {
             Method method = calculatorClass.getMethod(operation.name().toLowerCase(Locale.ROOT), Integer.class, Integer.class);
             Integer result = (Integer) method.invoke(calculator, arg1, arg2);
             return result;
-        } catch (NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
+        } catch (InvocationTargetException | IllegalAccessException e) {
             e.printStackTrace();
             return (Integer) null;
         }
