@@ -34,7 +34,4 @@ public class CalculatorService {
         }
     }
 
-    private int findResult(int arg1, int arg2, Operation operation) {
-
-    }
 }

@@ -17,7 +17,7 @@ public class Calculation {
     @Column(name = "arg_2", nullable = false)
     private int arg2;
 
-    @Enumerated
+    @Enumerated(EnumType.STRING)
     @Column(name = "operation", nullable = false)
     private Operation operation;
 
