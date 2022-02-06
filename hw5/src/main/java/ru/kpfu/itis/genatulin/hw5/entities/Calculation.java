@@ -3,32 +3,32 @@ package ru.kpfu.itis.genatulin.hw5.entities;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "calculation")
+@Table
 public class Calculation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
+    @Column(nullable = false)
     private Long id;
 
-    @Column(name = "arg_1", nullable = false)
-    private int arg1;
+    @Column(nullable = false)
+    private Integer arg1;
 
-    @Column(name = "arg_2", nullable = false)
-    private int arg2;
+    @Column(nullable = false)
+    private Integer arg2;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "operation", nullable = false)
+    @Enumerated
+    @Column(nullable = false)
     private Operation operation;
 
-    @Column(name = "result", nullable = false)
-    private int result;
+    @Column(nullable = false)
+    private Integer result;
 
-    public int getResult() {
+    public Integer getResult() {
         return result;
     }
 
-    public void setResult(int result) {
+    public void setResult(Integer result) {
         this.result = result;
     }
 
@@ -40,19 +40,19 @@ public class Calculation {
         this.operation = operation;
     }
 
-    public int getArg2() {
+    public Integer getArg2() {
         return arg2;
     }
 
-    public void setArg2(int arg2) {
+    public void setArg2(Integer arg2) {
         this.arg2 = arg2;
     }
 
-    public int getArg1() {
+    public Integer getArg1() {
         return arg1;
     }
 
-    public void setArg1(int arg1) {
+    public void setArg1(Integer arg1) {
         this.arg1 = arg1;
     }
 

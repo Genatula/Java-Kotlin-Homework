@@ -2,7 +2,7 @@ package ru.kpfu.itis.genatulin.hw5.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.kpfu.itis.genatulin.hw5.Calculator;
+import ru.kpfu.itis.genatulin.hw5.components.Calculator;
 import ru.kpfu.itis.genatulin.hw5.entities.Calculation;
 import ru.kpfu.itis.genatulin.hw5.entities.Operation;
 import ru.kpfu.itis.genatulin.hw5.repositories.CalculationRepository;
@@ -31,6 +31,7 @@ public class CalculatorService {
         else {
             Class<? extends Calculator> calculatorClass = calculator.getClass();
             try {
+                Method[] methods = calculatorClass.getMethods();
                 Method method = calculatorClass.getMethod(operation.name().toLowerCase(Locale.ROOT), Integer.class, Integer.class);
                 Integer result = (Integer) method.invoke(calculator, arg1, arg2);
 
