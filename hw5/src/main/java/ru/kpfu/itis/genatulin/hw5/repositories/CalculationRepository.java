@@ -27,7 +27,7 @@ public class CalculationRepository {
         Query query = entityManager.createQuery(
                 "select c from Calculation c where arg1 = " + arg1 + "" +
                         " and arg2 = " + arg2 + "" + " and operation in :operationList", Calculation.class);
-        query.setParameter("operationList", Arrays.asList(Operation.values()));
+        query.setParameter("operationList", List.of(operation));
         List<Calculation> result = (List<Calculation>) query.getResultList();
         if (result.size() == 0) {
             return null;
